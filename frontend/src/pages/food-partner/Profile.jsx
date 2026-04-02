@@ -75,7 +75,7 @@ import React, { useState, useEffect } from 'react';
 import '../../styles/profile.css';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
-
+import Button from '../../components/Button';
 const API = import.meta.env.VITE_API_URL;
 
 const Profile = () => {
@@ -105,6 +105,7 @@ const Profile = () => {
 
   return (
     <main className="profile-page">
+        <Button />
       <section className="profile-header">
         <div className="profile-meta">
           <img
