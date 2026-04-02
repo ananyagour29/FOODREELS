@@ -59,7 +59,7 @@ const ReelFeed = ({ items = [], onLike, onSave, emptyMessage = 'No videos yet.' 
             <div className="reel-overlay">
               <div className="reel-overlay-gradient" aria-hidden="true" />
               <div className="reel-actions">
-                <div className="reel-action-group">
+                {/* <div className="reel-action-group">
                   <button
                     onClick={onLike ? () => onLike(item) : undefined}
                     className="reel-action"
@@ -70,7 +70,7 @@ const ReelFeed = ({ items = [], onLike, onSave, emptyMessage = 'No videos yet.' 
                     </svg>
                   </button>
                   <div className="reel-action__count">{item.likeCount ?? item.likesCount ?? item.likes ?? 0}</div>
-                </div>
+                </div> */}
 
                 {/* <div className="reel-action-group">
                   <button
