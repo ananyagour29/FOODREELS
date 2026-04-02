@@ -41,7 +41,9 @@ const FoodPartnerRegister = () => {
 
   return (
     <div className="auth-page-wrapper">
-        <Button />
+        <div style={{ textAlign: 'center', marginBottom: '12px' }}>
+      <Button />
+    </div>
       <div className="auth-card" role="region" aria-labelledby="partner-register-title">
         <header>
           <h1 id="partner-register-title" className="auth-title">Partner sign up</h1>

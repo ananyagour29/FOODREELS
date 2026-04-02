@@ -38,7 +38,9 @@ const UserRegister = () => {
 
     return (
         <div className="auth-page-wrapper">
-              <Button />
+                <div style={{ textAlign: 'center', marginBottom: '12px' }}>
+      <Button />
+    </div>
             <div className="auth-card" role="region" aria-labelledby="user-register-title">
                 <header>
                     <h1 id="user-register-title" className="auth-title">Create your account</h1>
