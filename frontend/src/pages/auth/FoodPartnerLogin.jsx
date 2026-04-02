@@ -30,8 +30,9 @@ const FoodPartnerLogin = () => {
 
   return (
     <div className="auth-page-wrapper">
-        <Button />
+        {/* <Button /> */}
       <div className="auth-card" role="region" aria-labelledby="partner-login-title">
+         <Button />
         <header>
           <h1 id="partner-login-title" className="auth-title">Partner login</h1>
           <p className="auth-subtitle">Access your dashboard and manage orders.</p>
