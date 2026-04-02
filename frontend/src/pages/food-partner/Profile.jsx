@@ -160,9 +160,9 @@ const Profile = () => {
               <div className="video-overlay">
                 <h2>{v.name}</h2>
                 <p>{v.description}</p>
-                <button className="close-btn" onClick={closeVideoModal}>
+                {/* <button className="close-btn" onClick={closeVideoModal}>
                   Close
-                </button>
+                </button> */}
               </div>
             )}
           </div>
