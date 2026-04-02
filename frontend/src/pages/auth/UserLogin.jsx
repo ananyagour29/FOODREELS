@@ -23,7 +23,7 @@ const UserLogin = () => {
 
     console.log(response.data);
 
-    navigate("/"); // Redirect to home after login
+    navigate("/home"); // Redirect to home after login
 
   };
 
