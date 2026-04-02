@@ -14,17 +14,17 @@ const Button = () => {
       <style>
         {`
           .blue-back-btn {
-            background-color: #2563eb; /* blue-600 */
+            background-color: #475569; /* new color */
             color: white;
-            padding: 4px 12px;
-            border-radius: 6px;
+            padding: 4px 10px; /* small rectangle */
+            border-radius: 4px;
             font-size: 0.875rem; /* small text */
             border: none;
             cursor: pointer;
             transition: background-color 0.2s ease;
           }
           .blue-back-btn:hover {
-            background-color: #1d4ed8; /* blue-700 */
+            background-color: #3b4a5a; /* slightly darker on hover */
           }
         `}
       </style>
