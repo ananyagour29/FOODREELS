@@ -75,8 +75,8 @@ const CreateFood = () => {
 
     return (
         <div className="create-food-page">
-              <Button />
             <div className="create-food-card">
+                 <Button />
                 <header className="create-food-header">
                     <h1 className="create-food-title">Create Food</h1>
                     <p className="create-food-subtitle">Upload a short video, give it a name, and add a description.</p>
