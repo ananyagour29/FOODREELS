@@ -5,11 +5,14 @@ const router = express.Router();
 const multer = require('multer');
 
 
+// const upload = multer({
+//     storage: multer.memoryStorage(),
+// })
+
 const upload = multer({
     storage: multer.memoryStorage(),
+    limits: { fileSize: 50 * 1024 * 1024 } // 50MB
 })
-
-
 /* POST /api/food/ [protected]*/
 router.post('/',
     authMiddleware.authFoodPartnerMiddleware,
