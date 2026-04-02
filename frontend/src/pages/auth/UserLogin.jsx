@@ -1,6 +1,7 @@
 import React from 'react';
 import '../../styles/auth-shared.css';
 import axios from 'axios';
+import Button from '../../components/Button';
 import { useNavigate } from 'react-router-dom';
 const API = import.meta.env.VITE_API_URL;
 const UserLogin = () => {
@@ -29,6 +30,7 @@ const UserLogin = () => {
 
   return (
     <div className="auth-page-wrapper">
+        <Button />
       <div className="auth-card" role="region" aria-labelledby="user-login-title">
         <header>
           <h1 id="user-login-title" className="auth-title">Welcome back</h1>

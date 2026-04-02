@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import '../../styles/auth-shared.css';
 import axios from 'axios';
+import Button from '../../components/Button';
 import { useNavigate } from 'react-router-dom';
 const API = import.meta.env.VITE_API_URL;
 const UserRegister = () => {
@@ -37,6 +38,7 @@ const UserRegister = () => {
 
     return (
         <div className="auth-page-wrapper">
+              <Button />
             <div className="auth-card" role="region" aria-labelledby="user-register-title">
                 <header>
                     <h1 id="user-register-title" className="auth-title">Create your account</h1>
