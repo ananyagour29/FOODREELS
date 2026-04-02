@@ -96,8 +96,9 @@ async function loginUser(req, res) {
         const { email, password } = req.body;
 
         const user = await userModel.findOne({ email });
-
-        if (!user) {
+ console.log("USER:", user);
+        console.log("USER PASSWORD:", user?.password);
+        if (!user || !user.password) {
             return res.status(400).json({
                 message: "Invalid email or password"
             });
