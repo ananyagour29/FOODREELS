@@ -64,7 +64,8 @@ const CreateFood = () => {
         })
 
         console.log(response.data);
-        navigate("/"); // Redirect to home or another page after successful creation
+        // navigate("/"); 
+        navigate(`/food-partner/${response.data.foodPartnerId}`)
         // Optionally reset
         // setName(''); setDescription(''); setVideoFile(null);
     };
