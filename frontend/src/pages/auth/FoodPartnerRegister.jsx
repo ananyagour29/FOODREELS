@@ -40,10 +40,14 @@ const FoodPartnerRegister = () => {
   };
 
   return (
-    <div className="auth-page-wrapper">
-        <div style={{ textAlign: 'center', marginBottom: '12px' }}>
+    <>
+     <div style={{ position: 'absolute', top: '16px', left: '16px' }}>
       <Button />
     </div>
+    <div className="auth-page-wrapper">
+        {/* <div style={{ textAlign: 'center', marginBottom: '12px' }}>
+      <Button />
+    </div> */}
       <div className="auth-card" role="region" aria-labelledby="partner-register-title">
         <header>
           <h1 id="partner-register-title" className="auth-title">Partner sign up</h1>
@@ -87,6 +91,7 @@ const FoodPartnerRegister = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 

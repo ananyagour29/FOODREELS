@@ -29,11 +29,15 @@ const FoodPartnerLogin = () => {
   };
 
   return (
-    <div className="auth-page-wrapper">
-        {/* <Button /> */}
-          <div style={{ textAlign: 'center', marginBottom: '12px' }}>
+    <>
+     <div style={{ position: 'absolute', top: '16px', left: '16px' }}>
       <Button />
     </div>
+    <div className="auth-page-wrapper">
+        {/* <Button /> */}
+          {/* <div style={{ textAlign: 'center', marginBottom: '12px' }}>
+      <Button />
+    </div> */}
       <div className="auth-card" role="region" aria-labelledby="partner-login-title">
          {/* <Button /> */}
         <header>
@@ -56,6 +60,7 @@ const FoodPartnerLogin = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 

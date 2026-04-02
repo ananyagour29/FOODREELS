@@ -37,10 +37,14 @@ const UserRegister = () => {
     };
 
     return (
-        <div className="auth-page-wrapper">
-                <div style={{ textAlign: 'center', marginBottom: '12px' }}>
+        <>
+         <div style={{ position: 'absolute', top: '16px', left: '16px' }}>
       <Button />
     </div>
+        <div className="auth-page-wrapper">
+                {/* <div style={{ textAlign: 'center', marginBottom: '12px' }}>
+      <Button />
+    </div> */}
             <div className="auth-card" role="region" aria-labelledby="user-register-title">
                 <header>
                     <h1 id="user-register-title" className="auth-title">Create your account</h1>
@@ -75,6 +79,7 @@ const UserRegister = () => {
                 </div>
             </div>
         </div>
+        </>
     );
 };
 
