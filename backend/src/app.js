@@ -12,7 +12,7 @@ const app = express();
 //     credentials: true
 // }));
 app.use(cors({
-    origin: "https://foodreels-gamma.vercel.app",
+    origin: "https://foodreels-y4dm.vercel.app",
     credentials: true
 }));
 app.use(cookieParser());
