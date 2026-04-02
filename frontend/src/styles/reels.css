@@ -130,7 +130,10 @@
   border: 1px solid rgba(255,255,255,.15);
   box-shadow: var(--shadow-md);
 }
-
+.reel-action:hover {
+  transform: scale(1.1);
+  background: rgba(255, 255, 255, 0.2);
+}
 .reel-action:active { transform: translateY(1px); }
 
 .reel-action__count {
