@@ -1,6 +1,7 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import axios from 'axios';
 import '../../styles/create-food.css';
+import Button from '../../components/Button';
 import { useNavigate } from 'react-router-dom';
 const API = import.meta.env.VITE_API_URL;
 const CreateFood = () => {
@@ -74,6 +75,7 @@ const CreateFood = () => {
 
     return (
         <div className="create-food-page">
+              <Button />
             <div className="create-food-card">
                 <header className="create-food-header">
                     <h1 className="create-food-title">Create Food</h1>
