@@ -12,7 +12,7 @@ const FoodPartnerRegister = () => {
     e.preventDefault();
 
     const businessName = e.target.businessName.value;
-    const contactName = e.target.contactName.value;
+    // const contactName = e.target.contactName.value;
     const phone = e.target.phone.value;
     const email = e.target.email.value;
     const password = e.target.password.value;
@@ -23,7 +23,7 @@ const FoodPartnerRegister = () => {
       `${API}/api/auth/food-partner/register`,
        {
       name:businessName,
-      contactName,
+      // contactName,
       phone,
       email,
       password,
@@ -54,10 +54,10 @@ const FoodPartnerRegister = () => {
             <input id="businessName" name="businessName" placeholder="Tasty Bites" autoComplete="organization" />
           </div>
           <div className="two-col">
-            <div className="field-group">
+            {/* <div className="field-group">
               <label htmlFor="contactName">Contact Name</label>
               <input id="contactName" name="contactName" placeholder="Jane Doe" autoComplete="name" />
-            </div>
+            </div> */}
             <div className="field-group">
               <label htmlFor="phone">Phone</label>
               <input id="phone" name="phone" placeholder="+1 555 123 4567" autoComplete="tel" />

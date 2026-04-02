@@ -110,7 +110,7 @@ async function registerFoodPartner(req, res) {
         password: hashedPassword,
         phone,
         address,
-        contactName
+        // contactName
     })
 
     const token = jwt.sign({
@@ -126,7 +126,7 @@ async function registerFoodPartner(req, res) {
             email: foodPartner.email,
             name: foodPartner.name,
             address: foodPartner.address,
-            contactName: foodPartner.contactName,
+            // contactName: foodPartner.contactName,
             phone: foodPartner.phone
         }
     })
