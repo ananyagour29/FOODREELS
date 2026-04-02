@@ -40,24 +40,24 @@ const Home = () => {
         
     }
 
-    async function saveVideo(item) {
-        const response = await axios.post(
-            // "http://localhost:3000/api/food/save",
-            `${API}/api/food/save`,
-             { foodId: item._id }, { withCredentials: true })
+    // async function saveVideo(item) {
+    //     const response = await axios.post(
+    //         // "http://localhost:3000/api/food/save",
+    //         `${API}/api/food/save`,
+    //          { foodId: item._id }, { withCredentials: true })
         
-        if(response.data.save){
-            setVideos((prev) => prev.map((v) => v._id === item._id ? { ...v, savesCount: v.savesCount + 1 } : v))
-        }else{
-            setVideos((prev) => prev.map((v) => v._id === item._id ? { ...v, savesCount: v.savesCount - 1 } : v))
-        }
-    }
+    //     if(response.data.save){
+    //         setVideos((prev) => prev.map((v) => v._id === item._id ? { ...v, savesCount: v.savesCount + 1 } : v))
+    //     }else{
+    //         setVideos((prev) => prev.map((v) => v._id === item._id ? { ...v, savesCount: v.savesCount - 1 } : v))
+    //     }
+    // }
 
     return (
         <ReelFeed
             items={videos}
             onLike={likeVideo}
-            onSave={saveVideo}
+            // onSave={saveVideo}
             emptyMessage="No videos available."
         />
     )

@@ -72,7 +72,7 @@ const ReelFeed = ({ items = [], onLike, onSave, emptyMessage = 'No videos yet.' 
                   <div className="reel-action__count">{item.likeCount ?? item.likesCount ?? item.likes ?? 0}</div>
                 </div>
 
-                <div className="reel-action-group">
+                {/* <div className="reel-action-group">
                   <button
                     className="reel-action"
                     onClick={onSave ? () => onSave(item) : undefined}
@@ -83,7 +83,7 @@ const ReelFeed = ({ items = [], onLike, onSave, emptyMessage = 'No videos yet.' 
                     </svg>
                   </button>
                   <div className="reel-action__count">{item.savesCount ?? item.bookmarks ?? item.saves ?? 0}</div>
-                </div>
+                </div> */}
 
                 {/* <div className="reel-action-group">
                   <button className="reel-action" aria-label="Comments">
