@@ -5,13 +5,15 @@ import '../../styles/auth-shared.css';
 const ChooseRegister = () => {
   return (
     <>
-    <header>
-  <h1 id="choose-register-title" className="auth-title">Welcome to FOOD@REELS</h1>
-  <p className="auth-subtitle">
-    Discover delicious food 🍔, explore partner profiles 👤, and showcase your dishes 🍽️.
-  </p>
-</header>
     <div className="auth-page-wrapper">
+         <div>
+          <h1 id="choose-register-title" className="auth-title">
+            Welcome to FOOD@REELS
+          </h1>
+          <p className="auth-subtitle">
+            Discover delicious food 🍔, explore partner profiles 👤, and showcase your dishes 🍽️.
+          </p>
+        </div>
       <div className="auth-card" role="region" aria-labelledby="choose-register-title">
         <header>
           <h1 id="choose-register-title" className="auth-title">Register</h1>

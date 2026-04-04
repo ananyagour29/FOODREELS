@@ -123,23 +123,3 @@ button.auth-submit:focus-visible { outline: 2px solid var(--color-accent-hover);
 /* Smooth transitions for theme change */
 body, .auth-card, .field-group input { transition: background 200ms ease, color 200ms ease, border-color 200ms ease; }
 /* Header container */
-
-/* Heading */
-#choose-register-title {
-  font-size: 2.5rem;        /* Big, welcoming size */
-  font-weight: 700;          /* Bold */
-  color: #ff6b6b;            /* Warm, friendly color */
-  text-align: center;        /* Centered */
-  margin-bottom: 12px;       /* Space below heading */
-  letter-spacing: 1px;       /* Slight spacing for style */
-}
-
-/* Subtitle */
-.auth-subtitle {
-  font-size: 1.1rem;         /* Slightly bigger than normal text */
-  color: #555;               /* Dark gray for readability */
-  text-align: center;        /* Centered like heading */
-  line-height: 1.6;          /* Comfortable spacing */
-  max-width: 500px;          /* Limit width for better look */
-  margin: 0 auto;            /* Center block */
-}
