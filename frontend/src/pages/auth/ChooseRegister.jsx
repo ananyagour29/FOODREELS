@@ -8,9 +8,9 @@ const ChooseRegister = () => {
     <div className="auth-page-wrapper">
       <div className="auth-card" role="region" aria-labelledby="choose-register-title">
         <div>
-  <h6>
+  <h1>
     Welcome to FOOD@REELS — Explore tasty dishes 🍕 and discover food partners 👤 who can upload their creations 📤.
-  </h6>
+  </h1>
 </div>
         <header>
           <h1 id="choose-register-title" className="auth-title">Register</h1>
