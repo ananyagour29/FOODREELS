@@ -10,21 +10,12 @@ import Saved from '../pages/general/Saved';
 import BottomNav from '../components/BottomNav';
 import CreateFood from '../pages/food-partner/CreateFood';
 import Profile from '../pages/food-partner/Profile';
-
+import { ToastContainer } from 'react-toastify'; // ✅ import toast container
+import 'react-toastify/dist/ReactToastify.css';
 const AppRoutes = () => {
     return (
         <Router>
-            {/* <Routes>
-                <Route path="/register" element={<ChooseRegister />} />
-                <Route path="/user/register" element={<UserRegister />} />
-                <Route path="/user/login" element={<UserLogin />} />
-                <Route path="/food-partner/register" element={<FoodPartnerRegister />} />
-                <Route path="/food-partner/login" element={<FoodPartnerLogin />} />
-                <Route path="/" element={<><Home /><BottomNav /></>} />
-                <Route path="/saved" element={<><Saved /><BottomNav /></>} />
-                <Route path="/create-food" element={<CreateFood />} />
-                <Route path="/food-partner/:id" element={<Profile />} />
-            </Routes> */}
+             <ToastContainer position="top-right" autoClose={3000} />
             <Routes>
                <Route path="/" element={<ChooseRegister />} />
                <Route path="/register" element={<ChooseRegister />} />
