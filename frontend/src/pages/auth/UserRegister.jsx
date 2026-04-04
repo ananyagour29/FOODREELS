@@ -105,46 +105,41 @@ const UserRegister = () => {
     const email = e.target.email.value.trim();
     const password = e.target.password.value.trim();
 
-    // ✅ Frontend validation
+    // Frontend validation
     if (!firstName || !lastName || !email || !password) {
       toast.error("All fields are required.");
       return;
     }
 
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // generic email
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
       toast.error("Please enter a valid email address.");
       return;
     }
 
-    const passwordMinLength = 6;
-    if (password.length < passwordMinLength) {
-      toast.error(`Password must be at least ${passwordMinLength} characters.`);
+    if (password.length < 6) {
+      toast.error("Password must be at least 6 characters.");
       return;
     }
 
     try {
-      const response = await axios.post(
+      const { data } = await axios.post(
         `${API}/api/auth/user/register`,
-        { firstName, lastName, email, password }, // send separately
+        { firstName, lastName, email, password },
         { withCredentials: true }
       );
 
-      toast.success("Registration successful!");
-      navigate("/home");
-    } catch (error) {
-      const msg = error.response?.data?.message;
-
-      if (msg) {
-        // Map backend messages to friendly toast notifications
-        if (msg.includes("email")) {
-          toast.error("Email already exists or invalid.");
-        } else {
-          toast.error(msg);
-        }
+      // ✅ Check if backend actually returned success
+      if (data && data.success) {
+        toast.success("Registration successful!");
+        navigate("/home"); // Navigate after success
       } else {
-        toast.error("Registration failed. Please try again.");
+        toast.error(data.message || "Registration failed.");
       }
+    } catch (err) {
+      console.error(err);
+      const msg = err.response?.data?.message;
+      toast.error(msg || "Registration failed. Please try again.");
     }
   };
 
@@ -153,7 +148,6 @@ const UserRegister = () => {
       <div style={{ position: 'absolute', top: '16px', left: '16px' }}>
         <Button />
       </div>
-
       <div className="auth-page-wrapper">
         <div className="auth-card" role="region" aria-labelledby="user-register-title">
           <header>
