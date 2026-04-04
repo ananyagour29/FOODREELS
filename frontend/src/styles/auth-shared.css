@@ -123,27 +123,23 @@ button.auth-submit:focus-visible { outline: 2px solid var(--color-accent-hover);
 /* Smooth transitions for theme change */
 body, .auth-card, .field-group input { transition: background 200ms ease, color 200ms ease, border-color 200ms ease; }
 /* Header container */
-.auth-card header {
-  text-align: center;         /* Center the text */
-  padding: 24px 16px 16px;    /* Top/bottom spacing */
-  background: linear-gradient(90deg, #ff9a9e, #fad0c4); /* Soft gradient */
-  border-radius: 8px 8px 0 0; /* Rounded top corners */
-  margin-bottom: 16px;
+
+/* Heading */
+#choose-register-title {
+  font-size: 2.5rem;        /* Big, welcoming size */
+  font-weight: 700;          /* Bold */
+  color: #ff6b6b;            /* Warm, friendly color */
+  text-align: center;        /* Centered */
+  margin-bottom: 12px;       /* Space below heading */
+  letter-spacing: 1px;       /* Slight spacing for style */
 }
 
-/* Main title */
-.auth-card header h1.auth-title {
-  font-size: 2rem;             /* Big heading */
-  font-weight: 700;            /* Bold */
-  color: #fff;                 /* White text */
-  margin-bottom: 8px;
-  letter-spacing: 1px;         /* Slight spacing */
-}
-
-/* Subtitle/description */
-.auth-card header p.auth-subtitle {
-  font-size: 1rem;             /* Slightly smaller */
-  color: #fff;                 /* White text */
-  opacity: 0.9;                /* Slightly transparent for softness */
-  line-height: 1.5;            /* Better readability */
+/* Subtitle */
+.auth-subtitle {
+  font-size: 1.1rem;         /* Slightly bigger than normal text */
+  color: #555;               /* Dark gray for readability */
+  text-align: center;        /* Centered like heading */
+  line-height: 1.6;          /* Comfortable spacing */
+  max-width: 500px;          /* Limit width for better look */
+  margin: 0 auto;            /* Center block */
 }
