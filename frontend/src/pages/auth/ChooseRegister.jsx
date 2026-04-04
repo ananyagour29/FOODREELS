@@ -38,17 +38,17 @@ const ChooseRegister = () => {
   return (
     <div className="auth-page-wrapper">
       <div className="auth-card"> 
-        
+
+        {/* Welcome text above Register */}
+        <p className="auth-subtitle" style={{marginBottom: '16px', textAlign: 'center'}}>
+          Welcome to FOOD@REELS — Explore tasty dishes 🍕 and discover food partners 👤 who can upload their creations 📤.
+        </p>
+
         {/* Header */}
         <header>
           <h1 id="choose-register-title" className="auth-title">Register</h1>
           <p className="auth-subtitle">Pick how you want to join the platform.</p>
         </header>
-
-        {/* Description under header */}
-        <p className="auth-subtitle" style={{marginTop: '8px'}}>
-          Welcome to FOOD@REELS — Explore tasty dishes 🍕 and discover food partners 👤 who can upload their creations 📤.
-        </p>
 
         {/* Registration options */}
         <div style={{display:'flex', flexDirection:'column', gap:'16px'}}>
