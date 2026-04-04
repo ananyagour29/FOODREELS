@@ -101,6 +101,8 @@ import { Link, useNavigate } from 'react-router-dom';
 import '../../styles/auth-shared.css';
 import axios from 'axios';
 import Button from '../../components/Button';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const API = import.meta.env.VITE_API_URL;
 
@@ -118,25 +120,25 @@ const FoodPartnerRegister = () => {
 
     // Validation
     if (!businessName || !phone || !email || !password || !address) {
-      alert("Please fill in all fields.");
+      toast.error("Please fill in all fields!");
       return;
     }
 
     const emailRegex = /^[a-zA-Z0-9._%+-]+@gmail\.com$/;
     if (!emailRegex.test(email)) {
-      alert("Email must be a valid @gmail.com address.");
+      toast.error("Email must be a valid @gmail.com address!");
       return;
     }
 
     const passwordRegex = /^[0-9]+$/;
     if (!passwordRegex.test(password)) {
-      alert("Password must contain numbers only.");
+      toast.error("Password must contain numbers only!");
       return;
     }
 
     const phoneRegex = /^\d{10}$/;
     if (!phoneRegex.test(phone)) {
-      alert("Phone number must be exactly 10 digits.");
+      toast.error("Phone number must be exactly 10 digits!");
       return;
     }
 
@@ -149,12 +151,12 @@ const FoodPartnerRegister = () => {
       address
     }, { withCredentials: true })
       .then(response => {
-        console.log(response.data);
+        toast.success("Partner registered successfully!");
         navigate("/create-food"); // Redirect to create food page
       })
       .catch(error => {
-        console.error("There was an error registering!", error);
-        alert("Registration failed. Please try again.");
+        console.error("Registration error:", error);
+        toast.error("Registration failed. Please try again!");
       });
   };
 
@@ -163,6 +165,7 @@ const FoodPartnerRegister = () => {
       <div style={{ position: 'absolute', top: '16px', left: '16px' }}>
         <Button />
       </div>
+
       <div className="auth-page-wrapper">
         <div className="auth-card" role="region" aria-labelledby="partner-register-title">
           

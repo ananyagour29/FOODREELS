@@ -71,6 +71,8 @@ import axios from 'axios';
 import Button from '../../components/Button';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css'; // import toast CSS
+
 const API = import.meta.env.VITE_API_URL;
 
 const FoodPartnerLogin = () => {
@@ -88,15 +90,13 @@ const FoodPartnerLogin = () => {
       return;
     }
 
-    // Email format check (adjust domain if needed)
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
       toast.error("Please enter a valid email address.");
       return;
     }
 
-    // Password numeric check (remove if not required)
-    const passwordRegex = /^[0-9]+$/;
+    const passwordRegex = /^[0-9]+$/; // numeric password only
     if (!passwordRegex.test(password)) {
       toast.error("Password should contain numbers only.");
       return;
@@ -109,18 +109,17 @@ const FoodPartnerLogin = () => {
         { withCredentials: true }
       );
 
-      // ✅ Success
       toast.success("Login successful!");
-      navigate("/create-food");
+      navigate("/create-food"); // redirect to dashboard
+
     } catch (error) {
-      // 🔹 Backend errors
+      // 🔹 Backend error handling
       const msg = error.response?.data?.message;
 
       if (msg) {
-        // You can map backend messages to toast
-        if (msg.includes("password")) {
+        if (msg.toLowerCase().includes("password")) {
           toast.error("Incorrect password. Try again.");
-        } else if (msg.includes("email")) {
+        } else if (msg.toLowerCase().includes("email")) {
           toast.error("Email not found. Enter a valid email.");
         } else {
           toast.error(msg);
@@ -149,12 +148,12 @@ const FoodPartnerLogin = () => {
             </div>
             <div className="field-group">
               <label htmlFor="password">Password</label>
-              <input id="password" name="password" type="password" placeholder="Password" autoComplete="current-password" />
+              <input id="password" name="password" type="password" placeholder="Numbers only" autoComplete="current-password" />
             </div>
             <button className="auth-submit" type="submit">Sign In</button>
           </form>
           <div className="auth-alt-action">
-            New partner? <a href="/food-partner/register">Create an account</a>
+            New partner? <Link to="/food-partner/register">Create an account</Link>
           </div>
         </div>
       </div>
