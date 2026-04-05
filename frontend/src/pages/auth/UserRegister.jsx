@@ -95,93 +95,95 @@ import 'react-toastify/dist/ReactToastify.css';
 const API = import.meta.env.VITE_API_URL;
 
 const UserRegister = () => {
-  const navigate = useNavigate();
+    const navigate = useNavigate();
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+    const handleSubmit = async (e) => {
+        e.preventDefault();
 
-    const firstName = e.target.firstName.value.trim();
-    const lastName = e.target.lastName.value.trim();
-    const email = e.target.email.value.trim();
-    const password = e.target.password.value.trim();
+        const firstName = e.target.firstName.value.trim();
+        const lastName = e.target.lastName.value.trim();
+        const email = e.target.email.value.trim();
+        const password = e.target.password.value.trim();
 
-    // 🔹 Validations
-    if (!firstName || !lastName || !email || !password) {
-      toast.error("All fields are required!");
-      return;
-    }
+        // 🔹 Validations
+        if (!firstName || !lastName || !email || !password) {
+            toast.error("All fields are required!");
+            return;
+        }
 
-    const emailRegex = /^[a-zA-Z0-9._%+-]+@gmail\.com$/;
-    if (!emailRegex.test(email)) {
-      toast.error("Email must be a valid @gmail.com address!");
-      return;
-    }
+        const emailRegex = /^[a-zA-Z0-9._%+-]+@gmail\.com$/;
+        if (!emailRegex.test(email)) {
+            toast.error("Email must be a valid @gmail.com address!");
+            return;
+        }
 
-    const passwordRegex = /^[0-9]{6}$/; // exactly 6-digit numbers
-    if (!passwordRegex.test(password)) {
-      toast.error("Password must be exactly 6 numbers!");
-      return;
-    }
+        const passwordRegex = /^[0-9]{6}$/; // exactly 6 digits
+        if (!passwordRegex.test(password)) {
+            toast.error("Password must be exactly 6 digits!");
+            return;
+        }
 
-    try {
-      const response = await axios.post(
-        `${API}/api/auth/user/register`,
-        { fullName: firstName + " " + lastName, email, password },
-        { withCredentials: true }
-      );
+        try {
+            const response = await axios.post(
+                `${API}/api/auth/user/register`,
+                { fullName: firstName + " " + lastName, email, password },
+                { withCredentials: true }
+            );
 
-      console.log(response.data);
-      toast.success("Registration successful!");
-      navigate("/home"); // ✅ redirect after success
-    } catch (error) {
-      console.error(error);
-      const msg = error.response?.data?.message || "Registration failed!";
-      toast.error(msg);
-    }
-  };
+            console.log(response.data);
+            toast.success("Registration successful!");
 
-  return (
-    <>
-      <div style={{ position: 'absolute', top: '16px', left: '16px' }}>
-        <Button />
-      </div>
-      <div className="auth-page-wrapper">
-        <div className="auth-card" role="region" aria-labelledby="user-register-title">
-          <header>
-            <h1 id="user-register-title" className="auth-title">Create your account</h1>
-            <p className="auth-subtitle">Join to explore and enjoy delicious meals.</p>
-          </header>
-          <nav className="auth-alt-action" style={{ marginTop: '-4px' }}>
-            <strong style={{ fontWeight: 600 }}>Switch:</strong> <Link to="/user/register">User</Link> • <Link to="/food-partner/register">Food partner</Link>
-          </nav>
-          <form className="auth-form" onSubmit={handleSubmit} noValidate>
-            <div className="two-col">
-              <div className="field-group">
-                <label htmlFor="firstName">First Name</label>
-                <input id="firstName" name="firstName" placeholder="Jane" autoComplete="given-name" />
-              </div>
-              <div className="field-group">
-                <label htmlFor="lastName">Last Name</label>
-                <input id="lastName" name="lastName" placeholder="Doe" autoComplete="family-name" />
-              </div>
+            // ✅ Keep your redirect exactly as before
+            navigate("/home");
+        } catch (error) {
+            console.error(error);
+            const msg = error.response?.data?.message || "Registration failed!";
+            toast.error(msg);
+        }
+    };
+
+    return (
+        <>
+            <div style={{ position: 'absolute', top: '16px', left: '16px' }}>
+                <Button />
             </div>
-            <div className="field-group">
-              <label htmlFor="email">Email</label>
-              <input id="email" name="email" type="email" placeholder="you@gmail.com" autoComplete="email" />
+            <div className="auth-page-wrapper">
+                <div className="auth-card" role="region" aria-labelledby="user-register-title">
+                    <header>
+                        <h1 id="user-register-title" className="auth-title">Create your account</h1>
+                        <p className="auth-subtitle">Join to explore and enjoy delicious meals.</p>
+                    </header>
+                    <nav className="auth-alt-action" style={{ marginTop: '-4px' }}>
+                        <strong style={{ fontWeight: 600 }}>Switch:</strong> <Link to="/user/register">User</Link> • <Link to="/food-partner/register">Food partner</Link>
+                    </nav>
+                    <form className="auth-form" onSubmit={handleSubmit} noValidate>
+                        <div className="two-col">
+                            <div className="field-group">
+                                <label htmlFor="firstName">First Name</label>
+                                <input id="firstName" name="firstName" placeholder="Jane" autoComplete="given-name" />
+                            </div>
+                            <div className="field-group">
+                                <label htmlFor="lastName">Last Name</label>
+                                <input id="lastName" name="lastName" placeholder="Doe" autoComplete="family-name" />
+                            </div>
+                        </div>
+                        <div className="field-group">
+                            <label htmlFor="email">Email</label>
+                            <input id="email" name="email" type="email" placeholder="you@gmail.com" autoComplete="email" />
+                        </div>
+                        <div className="field-group">
+                            <label htmlFor="password">Password</label>
+                            <input id="password" name="password" type="password" placeholder="6-digit numbers only" autoComplete="new-password" />
+                        </div>
+                        <button className="auth-submit" type="submit">Sign Up</button>
+                    </form>
+                    <div className="auth-alt-action">
+                        Already have an account? <Link to="/user/login">Sign in</Link>
+                    </div>
+                </div>
             </div>
-            <div className="field-group">
-              <label htmlFor="password">Password</label>
-              <input id="password" name="password" type="password" placeholder="6-digit numbers only" autoComplete="new-password" />
-            </div>
-            <button className="auth-submit" type="submit">Sign Up</button>
-          </form>
-          <div className="auth-alt-action">
-            Already have an account? <Link to="/user/login">Sign in</Link>
-          </div>
-        </div>
-      </div>
-    </>
-  );
+        </>
+    );
 };
 
 export default UserRegister;
