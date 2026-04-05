@@ -117,7 +117,7 @@ const UserRegister = () => {
       return;
     }
 
-    const passwordRegex = /^[0-9]{6}$/; // exactly 6-digit number
+    const passwordRegex = /^[0-9]{6}$/; // exactly 6-digit numbers
     if (!passwordRegex.test(password)) {
       toast.error("Password must be exactly 6 numbers!");
       return;
@@ -126,10 +126,11 @@ const UserRegister = () => {
     try {
       const response = await axios.post(
         `${API}/api/auth/user/register`,
-        { fullName: `${firstName} ${lastName}`, email, password },
+        { fullName: firstName + " " + lastName, email, password },
         { withCredentials: true }
       );
 
+      console.log(response.data);
       toast.success("Registration successful!");
       navigate("/home"); // ✅ redirect after success
     } catch (error) {
@@ -141,27 +142,18 @@ const UserRegister = () => {
 
   return (
     <>
-      {/* Back button */}
       <div style={{ position: 'absolute', top: '16px', left: '16px' }}>
         <Button />
       </div>
-
       <div className="auth-page-wrapper">
         <div className="auth-card" role="region" aria-labelledby="user-register-title">
-          {/* Header */}
           <header>
             <h1 id="user-register-title" className="auth-title">Create your account</h1>
             <p className="auth-subtitle">Join to explore and enjoy delicious meals.</p>
           </header>
-
-          {/* Switch between User / Partner */}
           <nav className="auth-alt-action" style={{ marginTop: '-4px' }}>
-            <strong style={{ fontWeight: 600 }}>Switch:</strong> 
-            <Link to="/user/register">User</Link> • 
-            <Link to="/food-partner/register">Food partner</Link>
+            <strong style={{ fontWeight: 600 }}>Switch:</strong> <Link to="/user/register">User</Link> • <Link to="/food-partner/register">Food partner</Link>
           </nav>
-
-          {/* Form */}
           <form className="auth-form" onSubmit={handleSubmit} noValidate>
             <div className="two-col">
               <div className="field-group">
@@ -173,21 +165,16 @@ const UserRegister = () => {
                 <input id="lastName" name="lastName" placeholder="Doe" autoComplete="family-name" />
               </div>
             </div>
-
             <div className="field-group">
               <label htmlFor="email">Email</label>
               <input id="email" name="email" type="email" placeholder="you@gmail.com" autoComplete="email" />
             </div>
-
             <div className="field-group">
               <label htmlFor="password">Password</label>
               <input id="password" name="password" type="password" placeholder="6-digit numbers only" autoComplete="new-password" />
             </div>
-
             <button className="auth-submit" type="submit">Sign Up</button>
           </form>
-
-          {/* Already registered */}
           <div className="auth-alt-action">
             Already have an account? <Link to="/user/login">Sign in</Link>
           </div>
