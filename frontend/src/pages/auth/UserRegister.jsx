@@ -105,9 +105,9 @@ const UserRegister = () => {
     const email = e.target.email.value.trim();
     const password = e.target.password.value.trim();
 
-    // 🔹 Validation
+    // 🔹 Validations
     if (!firstName || !lastName || !email || !password) {
-      toast.error("Please fill in all fields!");
+      toast.error("All fields are required!");
       return;
     }
 
@@ -117,9 +117,9 @@ const UserRegister = () => {
       return;
     }
 
-    const passwordRegex = /^[0-9]{6}$/; // exactly 6 digits
+    const passwordRegex = /^[0-9]{6}$/; // exactly 6-digit number
     if (!passwordRegex.test(password)) {
-      toast.error("Password must be exactly 6 digits!");
+      toast.error("Password must be exactly 6 numbers!");
       return;
     }
 
@@ -131,20 +131,17 @@ const UserRegister = () => {
       );
 
       toast.success("Registration successful!");
-      navigate("/home"); // redirect to home
+      navigate("/home"); // ✅ redirect after success
     } catch (error) {
-      console.error("Registration error:", error);
-      const msg = error.response?.data?.message;
-      if (msg) {
-        toast.error(msg);
-      } else {
-        toast.error("Registration failed. Please try again!");
-      }
+      console.error(error);
+      const msg = error.response?.data?.message || "Registration failed!";
+      toast.error(msg);
     }
   };
 
   return (
     <>
+      {/* Back button */}
       <div style={{ position: 'absolute', top: '16px', left: '16px' }}>
         <Button />
       </div>
@@ -157,10 +154,10 @@ const UserRegister = () => {
             <p className="auth-subtitle">Join to explore and enjoy delicious meals.</p>
           </header>
 
-          {/* Switch */}
+          {/* Switch between User / Partner */}
           <nav className="auth-alt-action" style={{ marginTop: '-4px' }}>
-            <strong style={{ fontWeight: 600 }}>Switch:</strong>
-            <Link to="/user/register">User</Link> •
+            <strong style={{ fontWeight: 600 }}>Switch:</strong> 
+            <Link to="/user/register">User</Link> • 
             <Link to="/food-partner/register">Food partner</Link>
           </nav>
 
@@ -184,13 +181,13 @@ const UserRegister = () => {
 
             <div className="field-group">
               <label htmlFor="password">Password</label>
-              <input id="password" name="password" type="password" placeholder="6-digit number" autoComplete="new-password" />
+              <input id="password" name="password" type="password" placeholder="6-digit numbers only" autoComplete="new-password" />
             </div>
 
             <button className="auth-submit" type="submit">Sign Up</button>
           </form>
 
-          {/* Already signed in */}
+          {/* Already registered */}
           <div className="auth-alt-action">
             Already have an account? <Link to="/user/login">Sign in</Link>
           </div>
