@@ -1,19 +1,72 @@
-# FOOD@REELS – Food Reels Platform
+# FOOD@REELS – Food Reels Platform 🍔🎥
 
-A full-stack web platform for sharing and exploring food reels. Users can scroll through short food videos, visit profiles, and interact with content, while food partners can upload and manage their reels.
+A full-stack MERN-based food reels platform where users can scroll short food videos (like Instagram Reels), like/save content, and explore food partner profiles. Food partners can upload and manage their reels.
 
-## Features
+---
 
-- Users can browse and scroll through food reels.
-- Users can visit other users’ profiles to explore content.
-- Food partners can upload, view, and manage their uploaded reels.
-- Responsive design for smooth experience across devices.
-- RESTful APIs for managing reels and user interactions.
-- MongoDB database to efficiently store user data, reels, and interactions.
+## ✨ Features
 
-## Tech Stack
+### 👤 User Features
+- Scroll and watch food reels (short videos)
+- Like reels ❤️
+- Save reels 🔖 for later viewing
+- View saved videos in a separate **Saved tab**
+- Visit food partner profiles
+- Mobile-first responsive reel experience
 
-- **Frontend:** React.js
-- **Backend:** Node.js, Express.js
-- **Database:** MongoDB
-- **Tools:** GitHub, Postman, VS Code
+---
+
+### 🧑‍🍳 Food Partner Features
+- Register and login as food partner
+- Upload food reels (video + details)
+- Manage uploaded content
+- View profile with uploaded reels
+
+---
+
+### 🎬 Reel Experience
+- Fullscreen vertical scroll (TikTok/Instagram style)
+- Auto-play videos on scroll
+- Smooth Intersection Observer based playback
+- Clean overlay UI with title & description
+- Bottom navigation for easy access
+
+---
+
+### ⚙️ Backend Features
+- RESTful API using Express.js
+- JWT-based authentication (User + Food Partner)
+- Like system (toggle like)
+- Save system (toggle save)
+- Saved videos API
+- Secure middleware-based route protection
+- MongoDB integration for storing users, reels, and interactions
+
+---
+
+## 🛠️ Tech Stack
+
+### Frontend
+- React.js (Vite)
+- React Router DOM
+- Axios
+- React Toastify
+- CSS (custom styling)
+
+### Backend
+- Node.js
+- Express.js
+- MongoDB (Mongoose)
+- JWT Authentication
+- Multer (file uploads)
+- ImageKit (video storage)
+
+### Dev Tools
+- GitHub
+- Postman
+- Vercel (deployment)
+- VS Code
+
+---
+
+## 📂 Project Structure
