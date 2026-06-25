@@ -153,3 +153,10 @@
 .empty-state{
   position: absolute; inset: 0; display: grid; place-items: center; color: #fff;
 }
+/* for save like  */
+.reel-top-btn {
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  z-index: 9999;
+}

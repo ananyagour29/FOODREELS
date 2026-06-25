@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const saveSchema = new mongoose.Schema(
+const likeSchema = new mongoose.Schema(
   {
     user: {
       type: mongoose.Schema.Types.ObjectId,
@@ -19,4 +19,4 @@ const saveSchema = new mongoose.Schema(
   }
 );
 
-module.exports = mongoose.model("save", saveSchema);
+module.exports = mongoose.model("like", likeSchema);

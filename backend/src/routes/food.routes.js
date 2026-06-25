@@ -1,47 +1,86 @@
-const express = require('express');
-const foodController = require("../controllers/food.controller")
-const authMiddleware = require("../middlewares/auth.middleware")
-const router = express.Router();
-const multer = require('multer');
+
+// const express = require("express");
+// const foodController = require("../controllers/food.controller");
+// const authMiddleware = require("../middlewares/auth.middleware");
+// const multer = require("multer");
+// const { authUserMiddleware } = require("../middlewares/auth.middleware");
+// const router = express.Router();
 
 
+// // ================= MULTER CONFIG =================
 // const upload = multer({
-//     storage: multer.memoryStorage(),
-// })
+//   storage: multer.memoryStorage(),
+//   limits: { fileSize: 50 * 1024 * 1024 }, // 50MB
+// });
+
+
+// // ================= CREATE FOOD (PARTNER ONLY) =================
+// router.post(
+//   "/",
+//   authMiddleware.authFoodPartnerMiddleware,
+//   upload.single("video"), // FIXED (was "mama")
+//   foodController.createFood
+// );
+
+
+// // ================= GET ALL FOOD =================
+// router.get(
+//   "/",
+//   foodController.getFoodItems
+// );
+
+
+
+// module.exports = router;
+const express = require("express");
+const foodController = require("../controllers/food.controller");
+const authMiddleware = require("../middlewares/auth.middleware");
+const multer = require("multer");
+
+const router = express.Router();
 
 const upload = multer({
-    storage: multer.memoryStorage(),
-    limits: { fileSize: 50 * 1024 * 1024 } // 50MB
-})
-/* POST /api/food/ [protected]*/
-router.post('/',
-    authMiddleware.authFoodPartnerMiddleware,
-    upload.single("mama"),
-    foodController.createFood)
+  storage: multer.memoryStorage(),
+  limits: {
+    fileSize: 50 * 1024 * 1024,
+  },
+});
 
 
-/* GET /api/food/ [protected] */
-router.get("/",
-    // authMiddleware.authUserMiddleware,
-    foodController.getFoodItems)
+// ================= CREATE FOOD =================
+router.post(
+  "/",
+  authMiddleware.authFoodPartnerMiddleware,
+  upload.single("video"),
+  foodController.createFood
+);
 
 
-router.post('/like',
-    authMiddleware.authUserMiddleware,
-    foodController.likeFood)
+// ================= GET ALL FOOD =================
+router.get(
+  "/",
+  foodController.getFoodItems
+);
 
 
-router.post('/save',
-    authMiddleware.authUserMiddleware,
-    foodController.saveFood
-)
+// ================= LIKE FOOD =================
+router.post(
+  "/like",
+  authMiddleware.authUserMiddleware,
+  foodController.toggleLike
+);
 
 
-router.get('/save',
-    authMiddleware.authUserMiddleware,
-    foodController.getSaveFood
-)
+// ================= SAVE FOOD =================
+router.post(
+  "/save",
+  authMiddleware.authUserMiddleware,
+  foodController.toggleSave
+);
 
-
-
-module.exports = router
+router.get(
+  "/saved",
+  authMiddleware.authUserMiddleware,
+  foodController.getSavedVideos
+);
+module.exports = router;

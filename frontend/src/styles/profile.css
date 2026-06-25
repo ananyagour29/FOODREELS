@@ -2,13 +2,14 @@
 
 /* Layout container */
 .profile-page {
+  width: 100%;
   max-width: 1100px;
   margin: 0 auto;
-  padding: var(--space-6) var(--space-6) var(--space-8);
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-6);
+  padding: var(--space-6);
+  box-sizing: border-box;
+  overflow-x: hidden;
 }
+
 
 /* Header block */
 .profile-header {
@@ -16,29 +17,28 @@
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-sm);
-  padding: var(--space-6);
+  /* padding: var(--space-6); */
   display: flex;
   flex-direction: column;
-  gap: var(--space-6);
+  /* gap: var(--space-6); */
+  .profile-header {
+  padding: 16px 18px;   /* was too big earlier */
+  gap: 12px;            /* reduce vertical spacing */
+}
 }
 
+/* FIX: remove image layout space issue */
 .profile-meta {
+  display: flex;
+  gap:12px;
+}
+
+/* Info block */
+.profile-info {
   display: grid;
-  grid-template-columns: 120px 1fr;
-  align-items: center;
-  gap: var(--space-6);
+  gap: 6px;
+  width: 100%;
 }
-
-.profile-avatar {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  object-fit: cover;
-  background: var(--color-surface-alt);
-  border: 2px solid var(--color-border);
-}
-
-.profile-info { display: grid; gap: var(--space-3); }
 
 /* Pills */
 .profile-pill {
@@ -51,29 +51,37 @@
   color: var(--color-text);
   width: fit-content;
   box-shadow: var(--shadow-sm);
+
+  /* FIX: prevent word breaking weirdly */
+  white-space: nowrap;
 }
 
-.profile-business { font-size: 1.25rem; font-weight: 700; }
-.profile-address { font-size: 1.05rem; color: var(--color-text-secondary); }
+.profile-business {
+  font-size: 1.4rem;
+  font-weight: 800;
+}
 
 /* Stats */
 .profile-stats {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: 1fr;
   gap: var(--space-6);
   border-top: 1px dashed var(--color-border);
-  padding-top: var(--space-6);
+  padding-top: 10px;
+  margin-top:6px;
 }
-
+.profile-phone,
+.profile-address {
+  color: var(--color-text-secondary);
+    gap: 12px;
+}
 .profile-stat {
   display: grid;
-  grid-template-rows: auto auto;
   justify-items: center;
-  gap: var(--space-2);
 }
 
 .profile-stat-label {
-  font-size: 1.15rem;
+  font-size: 1.1rem;
   color: var(--color-text-secondary);
 }
 
@@ -82,46 +90,101 @@
   font-weight: 800;
 }
 
-/* Separator line under header (as in wireframe) */
+/* Separator */
 .profile-sep {
   height: 1px;
   border: none;
   background: var(--color-border);
 }
-
-/* Grid of videos */
 .profile-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
-.profile-grid-item { 
-    border: none;
-    aspect-ratio: 3 / 4; }
+/* IMPORTANT: prevent overflow inside items */
+.profile-grid-item {
+  width: 100%;
+  min-width: 0;
+  aspect-ratio: 3 / 4;
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+}
 
+/* video must fit inside */
 .profile-grid-video {
-  display: grid;
-  place-items: center;
+  width: 100%;
   height: 100%;
-  background: var(--color-surface);
-  color: var(--color-text-secondary);
-  font-size: 1.5rem;
+  object-fit: cover;
+  display: block;
+}
+/* Responsive */
+@media (max-width: 768px) {
+  .profile-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+  }
 }
 
-/* Responsive tweaks */
-@media (max-width: 900px) {
-  .profile-meta { grid-template-columns: 96px 1fr; }
-  .profile-avatar { width: 96px; height: 96px; }
+@media (max-width: 480px) {
+  .profile-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 6px;
+  }
+
+  .profile-page {
+    padding: 12px;
+  }
+}
+/* prevent horizontal overflow on mobile */
+body {
+  overflow-x: hidden;
 }
 
-@media (max-width: 680px) {
-
+/* IMPORTANT: make parent reference for dropdown */
+.profile-grid-item {
+.profile-grid-item {
+  overflow: hidden;
+}
 }
 
-@media (max-width: 420px) {
-  .profile-meta { grid-template-columns: 72px 1fr; }
-  .profile-avatar { width: 72px; height: 72px; }
-  .profile-stats { gap: var(--space-4); }
-  .profile-stat-label { font-size: 1rem; }
-  .profile-stat-value { font-size: 1.5rem; }
+/* if your 3-dot menu exists */
+.menu, .dropdown, .options {
+  position: absolute;
+  right: 8px;
+  top: 8px;
+  z-index: 1000;
 }
+
+/* MOBILE FIX: keep dropdown inside screen */
+@media (max-width: 600px) {
+  .menu, .dropdown, .options {
+    position: fixed;
+    right: 10px;
+    top: 60px;
+    max-width: 90vw;
+  }
+}
+button {
+  margin-bottom: 12px;
+}
+.info-value {
+  margin-left: 6px;
+}
+.copy-btn {
+  background: none;
+  color:beige;
+  border: 1px solid #d1d5db;
+  padding: 8px 14px;
+  border-radius: 999px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+
+
+

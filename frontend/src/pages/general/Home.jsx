@@ -1,66 +1,130 @@
-import React, { useEffect, useState } from 'react'
+// import React, { useEffect, useState } from 'react'
+// import axios from 'axios';
+// import '../../styles/reels.css'
+// import ReelFeed from '../../components/ReelFeed'
+// const API = import.meta.env.VITE_API_URL;
+// const Home = () => {
+//     const [ videos, setVideos ] = useState([])
+//     // Autoplay behavior is handled inside ReelFeed
+
+//     useEffect(() => {
+//         axios.get(
+//             // "http://localhost:3000/api/food", 
+//             `${API}/api/food`,
+//             { withCredentials: true })
+//             .then(response => {
+
+//                 console.log(response.data);
+
+//                 setVideos(response.data.foodItems)
+//             })
+//             .catch(() => { /* noop: optionally handle error */ })
+//     }, [])
+
+//     // Using local refs within ReelFeed; keeping map here for dependency parity if needed
+
+//     // async function likeVideo(item) {
+
+//     //     const response = await axios.post(
+//     //         // "http://localhost:3000/api/food/like",
+//     //         `${API}/api/food/like`,
+//     //          { foodId: item._id }, {withCredentials: true})
+
+//     //     if(response.data.like){
+//     //         console.log("Video liked");
+//     //         setVideos((prev) => prev.map((v) => v._id === item._id ? { ...v, likeCount: v.likeCount + 1 } : v))
+//     //     }else{
+//     //         console.log("Video unliked");
+//     //         setVideos((prev) => prev.map((v) => v._id === item._id ? { ...v, likeCount: v.likeCount - 1 } : v))
+//     //     }
+        
+//     // }
+
+//     // async function saveVideo(item) {
+//     //     const response = await axios.post(
+//     //         // "http://localhost:3000/api/food/save",
+//     //         `${API}/api/food/save`,
+//     //          { foodId: item._id }, { withCredentials: true })
+        
+//     //     if(response.data.save){
+//     //         setVideos((prev) => prev.map((v) => v._id === item._id ? { ...v, savesCount: v.savesCount + 1 } : v))
+//     //     }else{
+//     //         setVideos((prev) => prev.map((v) => v._id === item._id ? { ...v, savesCount: v.savesCount - 1 } : v))
+//     //     }
+//     // }
+
+//     return (
+//         <ReelFeed
+//             items={videos}
+//             // onLike={likeVideo}
+//             // onSave={saveVideo}
+//             emptyMessage="No videos available."
+//         />
+//     )
+// }
+
+// export default Home
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import '../../styles/reels.css'
-import ReelFeed from '../../components/ReelFeed'
+import '../../styles/reels.css';
+import ReelFeed from '../../components/ReelFeed';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 const API = import.meta.env.VITE_API_URL;
+
 const Home = () => {
-    const [ videos, setVideos ] = useState([])
-    // Autoplay behavior is handled inside ReelFeed
+    const [videos, setVideos] = useState([]);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        axios.get(
-            // "http://localhost:3000/api/food", 
-            `${API}/api/food`,
-            { withCredentials: true })
-            .then(response => {
+        const fetchVideos = async () => {
+            try {
+                const response = await axios.get(
+                    `${API}/api/food`,
+                    {
+                        withCredentials: true,
+                    }
+                );
 
                 console.log(response.data);
 
-                setVideos(response.data.foodItems)
-            })
-            .catch(() => { /* noop: optionally handle error */ })
-    }, [])
+                setVideos(response.data.foodItems || []);
+            } catch (error) {
+                console.error(error);
 
-    // Using local refs within ReelFeed; keeping map here for dependency parity if needed
+                toast.error(
+                    error.response?.data?.message ||
+                    'Failed to load videos'
+                );
+            } finally {
+                setLoading(false);
+            }
+        };
 
-    // async function likeVideo(item) {
+        fetchVideos();
+    }, []);
 
-    //     const response = await axios.post(
-    //         // "http://localhost:3000/api/food/like",
-    //         `${API}/api/food/like`,
-    //          { foodId: item._id }, {withCredentials: true})
-
-    //     if(response.data.like){
-    //         console.log("Video liked");
-    //         setVideos((prev) => prev.map((v) => v._id === item._id ? { ...v, likeCount: v.likeCount + 1 } : v))
-    //     }else{
-    //         console.log("Video unliked");
-    //         setVideos((prev) => prev.map((v) => v._id === item._id ? { ...v, likeCount: v.likeCount - 1 } : v))
-    //     }
-        
-    // }
-
-    // async function saveVideo(item) {
-    //     const response = await axios.post(
-    //         // "http://localhost:3000/api/food/save",
-    //         `${API}/api/food/save`,
-    //          { foodId: item._id }, { withCredentials: true })
-        
-    //     if(response.data.save){
-    //         setVideos((prev) => prev.map((v) => v._id === item._id ? { ...v, savesCount: v.savesCount + 1 } : v))
-    //     }else{
-    //         setVideos((prev) => prev.map((v) => v._id === item._id ? { ...v, savesCount: v.savesCount - 1 } : v))
-    //     }
-    // }
+    if (loading) {
+        return (
+            <div
+                style={{
+                    textAlign: 'center',
+                    marginTop: '50px',
+                    fontSize: '18px',
+                }}
+            >
+                Loading food reels...
+            </div>
+        );
+    }
 
     return (
         <ReelFeed
             items={videos}
-            // onLike={likeVideo}
-            // onSave={saveVideo}
-            emptyMessage="No videos available."
+            emptyMessage="No food reels available."
         />
-    )
-}
+    );
+};
 
-export default Home
+export default Home;

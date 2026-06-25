@@ -1,20 +1,49 @@
+// const ImageKit = require("imagekit");
+
+// const imagekit = new ImageKit({
+//     publicKey: process.env.IMAGEKIT_PUBLIC_KEY,
+//     privateKey: process.env.IMAGEKIT_PRIVATE_KEY,
+//     urlEndpoint: process.env.IMAGEKIT_URL_ENDPOINT
+// });
+
+// async function uploadFile(file, fileName) {
+//     const result = await imagekit.upload({
+//         file: file, // required
+//         fileName: fileName, // required
+//     })
+
+//     return result; // Return the URL of the uploaded file
+// }
+
+// module.exports = {
+//     uploadFile
+// }
 const ImageKit = require("imagekit");
 
 const imagekit = new ImageKit({
-    publicKey: process.env.IMAGEKIT_PUBLIC_KEY,
-    privateKey: process.env.IMAGEKIT_PRIVATE_KEY,
-    urlEndpoint: process.env.IMAGEKIT_URL_ENDPOINT
+  publicKey: process.env.IMAGEKIT_PUBLIC_KEY,
+  privateKey: process.env.IMAGEKIT_PRIVATE_KEY,
+  urlEndpoint: process.env.IMAGEKIT_URL_ENDPOINT,
 });
 
-async function uploadFile(file, fileName) {
-    const result = await imagekit.upload({
-        file: file, // required
-        fileName: fileName, // required
-    })
+async function uploadFile(fileBuffer, fileName) {
+  try {
+    if (!fileBuffer) {
+      throw new Error("No file provided for upload");
+    }
 
-    return result; // Return the URL of the uploaded file
+    const result = await imagekit.upload({
+      file: fileBuffer, // buffer or base64
+      fileName: fileName,
+    });
+
+    return result; // contains url, fileId, etc.
+  } catch (error) {
+    console.error("IMAGEKIT UPLOAD ERROR:", error);
+    throw error;
+  }
 }
 
 module.exports = {
-    uploadFile
-}
+  uploadFile,
+};
