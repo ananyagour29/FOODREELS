@@ -20,15 +20,12 @@ A full-stack MERN-based food reels platform where users can scroll short food vi
 ### 🧑‍🍳 Food Partner Features
 - Register and login as food partner
 - Upload food reels (video + details)
-- Manage uploaded content
-- View profile with uploaded reels
 
 ---
 
 ### 🎬 Reel Experience
 - Fullscreen vertical scroll (TikTok/Instagram style)
 - Auto-play videos on scroll
-- Smooth Intersection Observer based playback
 - Clean overlay UI with title & description
 - Bottom navigation for easy access
 
@@ -39,8 +36,6 @@ A full-stack MERN-based food reels platform where users can scroll short food vi
 - JWT-based authentication (User + Food Partner)
 - Like system (toggle like)
 - Save system (toggle save)
-- Saved videos API
-- Secure middleware-based route protection
 - MongoDB integration for storing users, reels, and interactions
 
 ---
@@ -62,12 +57,4 @@ A full-stack MERN-based food reels platform where users can scroll short food vi
 - Multer (file uploads)
 - ImageKit (video storage)
 
-### Dev Tools
-- GitHub
-- Postman
-- Vercel (deployment)
-- VS Code
 
----
-
-## 📂 Project Structure
