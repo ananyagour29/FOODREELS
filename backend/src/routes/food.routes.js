@@ -1,37 +1,4 @@
 
-// const express = require("express");
-// const foodController = require("../controllers/food.controller");
-// const authMiddleware = require("../middlewares/auth.middleware");
-// const multer = require("multer");
-// const { authUserMiddleware } = require("../middlewares/auth.middleware");
-// const router = express.Router();
-
-
-// // ================= MULTER CONFIG =================
-// const upload = multer({
-//   storage: multer.memoryStorage(),
-//   limits: { fileSize: 50 * 1024 * 1024 }, // 50MB
-// });
-
-
-// // ================= CREATE FOOD (PARTNER ONLY) =================
-// router.post(
-//   "/",
-//   authMiddleware.authFoodPartnerMiddleware,
-//   upload.single("video"), // FIXED (was "mama")
-//   foodController.createFood
-// );
-
-
-// // ================= GET ALL FOOD =================
-// router.get(
-//   "/",
-//   foodController.getFoodItems
-// );
-
-
-
-// module.exports = router;
 const express = require("express");
 const foodController = require("../controllers/food.controller");
 const authMiddleware = require("../middlewares/auth.middleware");
