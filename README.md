@@ -37,8 +37,6 @@ A full-stack MERN-based food reels platform where users can scroll short food vi
 - MongoDB integration for storing users, reels, and interactions
 
 ## 📁 Project Structure
-
-text
 FOOD@REELS/
 │
 ├── backend/
