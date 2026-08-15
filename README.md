@@ -36,6 +36,26 @@ A full-stack MERN-based food reels platform where users can scroll short food vi
 - JWT-based authentication (User + Food Partner)
 - MongoDB integration for storing users, reels, and interactions
 
+
+## 🛠️ Tech Stack
+
+### Frontend
+- React.js (Vite)
+- React Router DOM
+- Axios
+- React Toastify
+- CSS (custom styling)
+
+### Backend
+- Node.js
+- Express.js
+- MongoDB (Mongoose)
+- JWT Authentication
+- Multer (file uploads)
+- ImageKit (video storage)
+
+
+
 ## 📁 Project Structure
 
 ```plaintext
@@ -126,21 +146,3 @@ FOOD@REELS/
 │
 ├── .gitignore
 └── README.md
-## 🛠️ Tech Stack
-
-### Frontend
-- React.js (Vite)
-- React Router DOM
-- Axios
-- React Toastify
-- CSS (custom styling)
-
-### Backend
-- Node.js
-- Express.js
-- MongoDB (Mongoose)
-- JWT Authentication
-- Multer (file uploads)
-- ImageKit (video storage)
-
-
