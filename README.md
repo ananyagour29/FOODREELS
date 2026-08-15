@@ -34,8 +34,6 @@ A full-stack MERN-based food reels platform where users can scroll short food vi
 ### ⚙️ Backend Features
 - RESTful API using Express.js
 - JWT-based authentication (User + Food Partner)
-- Like system (toggle like)
-- Save system (toggle save)
 - MongoDB integration for storing users, reels, and interactions
 
 ---
