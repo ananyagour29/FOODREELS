@@ -78,7 +78,59 @@ FOOD@REELS/
 │   └── vercel.json
 │
 ├── frontend/
-│   └── (frontend files not expanded in the screenshot)
+│   │
+│   ├── public/
+│   │
+│   ├── src/
+│   │   │
+│   │   ├── assets/
+│   │   │   └── react.svg
+│   │   │
+│   │   ├── components/
+│   │   │   ├── BottomNav.jsx
+│   │   │   ├── Button.jsx
+│   │   │   └── ReelFeed.jsx
+│   │   │
+│   │   ├── pages/
+│   │   │   │
+│   │   │   ├── auth/
+│   │   │   │   ├── ChooseRegister.jsx
+│   │   │   │   ├── FoodPartnerLogin.jsx
+│   │   │   │   ├── FoodPartnerRegister.jsx
+│   │   │   │   ├── UserLogin.jsx
+│   │   │   │   └── UserRegister.jsx
+│   │   │   │
+│   │   │   ├── food-partner/
+│   │   │   │   ├── CreateFood.jsx
+│   │   │   │   └── Profile.jsx
+│   │   │   │
+│   │   │   └── general/
+│   │   │       ├── Home.jsx
+│   │   │      
+│   │   │
+│   │   ├── routes/
+│   │   │   └── AppRoutes.jsx
+│   │   │
+│   │   ├── styles/
+│   │   │   ├── auth-shared.css
+│   │   │   ├── bottom-nav.css
+│   │   │   ├── create-food.css
+│   │   │   ├── profile.css
+│   │   │   ├── reels.css
+│   │   │   └── theme.css
+│   │   │
+│   │   ├── App.css
+│   │   ├── App.jsx
+│   │   └── main.jsx
+│   │
+│   ├── .gitignore
+│   ├── README.md
+│   ├── eslint.config.js
+│   ├── index.html
+│   ├── package.json
+│   ├── package-lock.json
+│   ├── vercel.json
+│   └── vite.config.js
 │
 ├── .gitignore
 │
