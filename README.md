@@ -37,7 +37,52 @@ A full-stack MERN-based food reels platform where users can scroll short food vi
 - MongoDB integration for storing users, reels, and interactions
 
 ---
-
+## folder structure
+FOOD@REELS/
+│
+├── backend/
+│   │
+│   ├── src/
+│   │   │
+│   │   ├── controllers/
+│   │   │   ├── auth.controller.js
+│   │   │   ├── food-partner.controller.js
+│   │   │   └── food.controller.js
+│   │   │
+│   │   ├── db/
+│   │   │   └── db.js
+│   │   │
+│   │   ├── middlewares/
+│   │   │   └── auth.middleware.js
+│   │   │
+│   │   ├── models/
+│   │   │   ├── food.model.js
+│   │   │   ├── foodpartner.model.js
+│   │   │   ├── like.model.js
+│   │   │   ├── save.model.js
+│   │   │   └── user.model.js
+│   │   │
+│   │   ├── routes/
+│   │   │   ├── auth.routes.js
+│   │   │   ├── food-partner.routes.js
+│   │   │   └── food.routes.js
+│   │   │
+│   │   └── services/
+│   │       └── storage.service.js
+│   │
+│   ├── app.js
+│   ├── .env.example
+│   ├── package.json
+│   ├── package-lock.json
+│   ├── server.js
+│   └── vercel.json
+│
+├── frontend/
+│   └── (frontend files not expanded in the screenshot)
+│
+├── .gitignore
+│
+└── README.md
 ## 🛠️ Tech Stack
 
 ### Frontend
