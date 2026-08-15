@@ -37,12 +37,12 @@ A full-stack MERN-based food reels platform where users can scroll short food vi
 - MongoDB integration for storing users, reels, and interactions
 
 ## 📁 Project Structure
+
+```plaintext
 FOOD@REELS/
 │
 ├── backend/
-│   │
 │   ├── src/
-│   │   │
 │   │   ├── controllers/
 │   │   │   ├── auth.controller.js
 │   │   │   ├── food-partner.controller.js
@@ -77,11 +77,8 @@ FOOD@REELS/
 │   └── vercel.json
 │
 ├── frontend/
-│   │
 │   ├── public/
-│   │
 │   ├── src/
-│   │   │
 │   │   ├── assets/
 │   │   │   └── react.svg
 │   │   │
@@ -91,7 +88,6 @@ FOOD@REELS/
 │   │   │   └── ReelFeed.jsx
 │   │   │
 │   │   ├── pages/
-│   │   │   │
 │   │   │   ├── auth/
 │   │   │   │   ├── ChooseRegister.jsx
 │   │   │   │   ├── FoodPartnerLogin.jsx
@@ -117,13 +113,10 @@ FOOD@REELS/
 │   │   │   ├── profile.css
 │   │   │   ├── reels.css
 │   │   │   └── theme.css
-│   │   │
-│   │   ├── App.css
-│   │   ├── App.jsx
-│   │   └── main.jsx
 │   │
-│   ├── .gitignore
-│   ├── README.md
+│   ├── App.css
+│   ├── App.jsx
+│   ├── main.jsx
 │   ├── eslint.config.js
 │   ├── index.html
 │   ├── package.json
@@ -132,7 +125,6 @@ FOOD@REELS/
 │   └── vite.config.js
 │
 ├── .gitignore
-│
 └── README.md
 ## 🛠️ Tech Stack
 
