@@ -36,8 +36,9 @@ A full-stack MERN-based food reels platform where users can scroll short food vi
 - JWT-based authentication (User + Food Partner)
 - MongoDB integration for storing users, reels, and interactions
 
----
-## folder structure
+## 📁 Project Structure
+
+text
 FOOD@REELS/
 │
 ├── backend/
@@ -106,7 +107,7 @@ FOOD@REELS/
 │   │   │   │
 │   │   │   └── general/
 │   │   │       ├── Home.jsx
-│   │   │      
+│   │   │       └── Saved.jsx
 │   │   │
 │   │   ├── routes/
 │   │   │   └── AppRoutes.jsx
